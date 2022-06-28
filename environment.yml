@@ -1,0 +1,16 @@
+name: polyclonal-neut 
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - mamba
+  - jupyterlab
+  - pandas
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - pip
+  - pip:
+    - streamlit
+    - watchdog
+    - git+https://github.com/jbloomlab/polyclonal/@0.1#egg=polyclonal
