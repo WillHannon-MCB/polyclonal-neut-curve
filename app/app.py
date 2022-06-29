@@ -275,6 +275,12 @@ else:
     st.info("Please enter the substitutions in your variant.")
     variant = parse_variants(variant_string)
 
+xlims = st.select_slider(
+    "Select min and max concentration to display",
+    options=[1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6],
+    value=(1e-3, 1e3))
+    
+
 # Epitope colors -- default are these colors
 epitope_colors = {
     'class 1': '#1f77b4',
@@ -288,14 +294,18 @@ epitope_colors = {
 wt_df = make_sigmoid(
     variants = [],
     escape_df = mut_escape_df,
-    activity_df = activity_wt_df)
+    activity_df = activity_wt_df,
+    min_c = xlims[0],
+    max_c = xlims[1])
 
 
 # Variant fraction neutralized
 variant_df = make_sigmoid(
     variants = variant,
     escape_df = mut_escape_df,
-    activity_df = activity_wt_df)
+    activity_df = activity_wt_df,
+    min_c = xlims[0],
+    max_c = xlims[1])
 
 by_epitope = plot_sigmoid(
     variant_df,
