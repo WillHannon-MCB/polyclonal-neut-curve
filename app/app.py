@@ -321,31 +321,31 @@ col1, col2 = st.columns(2)
 with col1:
     st.pyplot(by_epitope[0])
     if variant_string:
-        by_epitope_fn = f'{"_".join(parse_variants(variant_string))}_by_epitope.png'
+        by_epitope_fn = f'{"_".join(parse_variants(variant_string))}_by_epitope.svg'
     else: 
-        by_epitope_fn = 'by_epitope.png'
+        by_epitope_fn = 'by_epitope.svg'
     by_epitope_img = io.BytesIO()
-    by_epitope[0].savefig(by_epitope_img, format='png', bbox_inches='tight', dpi=300)
+    by_epitope[0].savefig(by_epitope_img, format='svg', bbox_inches='tight')
     by_epitope_btn = st.download_button(
         label="Download image",
         data=by_epitope_img,
         file_name=by_epitope_fn,
-        mime="image/png"
+        mime="image/svg"
     )
 
 with col2:
     st.pyplot(total[0])
     if variant_string:
-        total_fn = f'{"_".join(parse_variants(variant_string))}_total.png'
+        total_fn = f'{"_".join(parse_variants(variant_string))}_total.svgv'
     else: 
-        total_fn = 'total.png'    
+        total_fn = 'total.svg'    
     total_img = io.BytesIO()
-    total[0].savefig(total_img, format='png', bbox_inches='tight', dpi=300)
+    total[0].savefig(total_img, format='svg', bbox_inches='tight')
     total_btn = st.download_button(
         label="Download image",
         data=total_img,
         file_name=total_fn,
-        mime="image/png"
+        mime="image/svg"
     )
 
 st.write("---")
