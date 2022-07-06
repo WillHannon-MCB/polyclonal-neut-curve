@@ -23,9 +23,9 @@ with header:
 ## == Download the Data == ##
 
 # Mutation Escape 
-mut_escape_df = pd.read_csv("data/RBD_mut_escape_df.csv")
+mut_escape_df = pd.read_csv("data/RBD_mut_escape_df_two_epitopes.csv")
 # Epitope Activity 
-activity_wt_df = pd.read_csv("data/RBD_activity_wt_df.csv")
+activity_wt_df = pd.read_csv("data/RBD_activity_wt_df_two_epitopes.csv")
 
 # Escape data must contain these columns
 assert all(col in mut_escape_df.columns for col in ['epitope', 'mutation', 'escape'])
